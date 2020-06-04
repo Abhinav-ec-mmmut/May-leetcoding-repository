@@ -1,0 +1,42 @@
+You're given strings J representing the types of stones that are jewels, and S representing the stones you have.  Each character in S is a type of stone you have.  You want to know how many of the stones you have are also jewels.
+
+The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so "a" is considered a different type of stone from "A".
+
+Example 1:
+
+Input: J = "aA", S = "aAAbbbb"
+Output: 3
+Example 2:
+
+Input: J = "z", S = "ZZ"
+Output: 0
+Note:
+
+S and J will consist of letters and have length at most 50.
+The characters in J are distinct.
+   Show Hint #1  
+C++	
+1
+class Solution {
+2
+public:
+3
+    int numJewelsInStones(string J, string S) {
+4
+        int nj=J.size(),ns=S.size();
+5
+        set<char> set;int cnt=0;
+6
+        for(int i=0;i<nj;i++)
+7
+            set.insert(J[i]);
+8
+        for(int i=0;i<ns;i++)
+9
+            if(set.count(S[i])) cnt++;
+10
+        return cnt;
+11
+    }
+12
+};
